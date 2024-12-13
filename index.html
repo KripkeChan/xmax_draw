@@ -17,7 +17,7 @@
             position: absolute;
             top: -10px; /* Start above the viewport */
             color: white; /* Snowflake color */
-            font-size: 1.5em; /* Size of the snowflakes */
+            font-size: 3em; /* Size of the snowflakes */
             opacity: 0.8; /* Slight transparency */
             pointer-events: none; /* Prevent interaction with snowflakes */
             user-select: none; /* Prevent text selection */
@@ -28,8 +28,7 @@
     <div class="container">
         <h1>🎄 Welcome to the GP1 Xmas Gift Exchange 🎄</h1>
         <p>Enter your unique code to find out who you'll be gifting this Christmas!</p>
-        </br>
-        <p>Buget : 300</p>
+        <p>Budget : 300</p>
         <form id="codeForm">
             <input type="text" id="uniqueCode" placeholder="Enter Code" required>
             <button type="submit">Submit</button>
@@ -89,7 +88,7 @@
             if (receiver) {
                 window.location.href = `gift.html?code=${code}`;
             } else {
-                alert('Code not found. Please try again.');
+                alert('Code not found. Please try again. And 揾IT部同事幫幫手');
             }
         };
     </script>

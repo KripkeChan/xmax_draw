@@ -5,6 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Your Gift Assignment</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Snow Animation Styles */
+        body {
+            overflow: hidden; /* Prevent scrolling due to snowflakes */
+            background: #f0f8ff; /* Light blue background */
+            position: relative;
+        }
+
+        .snowflake {
+            position: absolute;
+            top: -10px; /* Start above the viewport */
+            color: white; /* Snowflake color */
+            font-size: 1.5em; /* Size of the snowflakes */
+            opacity: 0.8; /* Slight transparency */
+            pointer-events: none; /* Prevent interaction with snowflakes */
+            user-select: none; /* Prevent text selection */
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(100vh); /* Fall to the bottom of the viewport */
+            }
+        }
+
+        .snowflake {
+            animation-name: fall;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -13,12 +46,34 @@
         <img id="receiverPhoto" src="" alt="Receiver's Photo" style="display:none;">
     </div>
     <script>
+        // Snow Animation Script
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.className = 'snowflake';
+            snowflake.innerHTML = '❄'; // Snowflake character
+            document.body.appendChild(snowflake);
+
+            // Randomize the position and animation duration
+            const xPos = Math.random() * window.innerWidth;
+            const duration = Math.random() * 3 + 2; // Between 2s and 5s
+            snowflake.style.left = xPos + 'px';
+            snowflake.style.animationDuration = duration + 's';
+
+            // Remove the snowflake after it falls
+            setTimeout(() => {
+                snowflake.remove();
+            }, duration * 1000);
+        }
+
+        // Create snowflakes at intervals
+        setInterval(createSnowflake, 300); // Create a snowflake every 300ms
+
         // Updated Gift assignments data with images
         const giftAssignments = {
-            '#23@123': { name: 'Pacco', photo: 'images/pacco.jpg' },
+            '#2#75@23': { name: 'Pacco', photo: 'images/pacco.jpg' },
             '#2145@23': { name: 'May', photo: 'images/may.jpg' },
             '#21@123': { name: 'Justin', photo: 'images/justin.jpg' },
-            '#23@165': { name: 'Chris', photo: 'images/chris.jpg' }
+            '#2%33@1$': { name: 'Chris', photo: 'images/chris.jpg' }
         };
 
         // Function to get URL parameters
@@ -29,15 +84,18 @@
 
         // Get the code from the URL
         const code = getQueryParam('code');
+        console.log(code);
         const receiverInfo = giftAssignments[code];
 
+        // Get the photo element before using it
+        const photoElement = document.getElementById('receiverPhoto');
+
         if (receiverInfo) {
-            document.getElementById('giftReceiver').textContent = receiverInfo.name;
-            const photoElement = document.getElementById('receiverPhoto');
             photoElement.src = receiverInfo.photo; // Set the photo source
             photoElement.style.display = 'block'; // Show the photo
+            document.getElementById('giftReceiver').textContent = receiverInfo.name; // Set the receiver's name
         } else {
-            document.getElementById('giftReceiver').textContent = 'Code not found.';
+            document.getElementById('giftReceiver').textContent = 'Code not found.'; // Handle invalid code
         }
     </script>
 </body>

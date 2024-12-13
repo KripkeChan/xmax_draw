@@ -5,6 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Xmas Gift Exchange</title>
     <link rel="stylesheet" href="./styles.css">
+    <style>
+        /* Snow Animation Styles */
+        body {
+            overflow: hidden; /* Prevent scrolling due to snowflakes */
+            background: #f0f8ff; /* Light blue background */
+            position: relative;
+        }
+
+        .snowflake {
+            position: absolute;
+            top: -10px; /* Start above the viewport */
+            color: white; /* Snowflake color */
+            font-size: 1.5em; /* Size of the snowflakes */
+            opacity: 0.8; /* Slight transparency */
+            pointer-events: none; /* Prevent interaction with snowflakes */
+            user-select: none; /* Prevent text selection */
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -15,18 +33,41 @@
             <button type="submit">Submit</button>
         </form>
     </div>
+
     <script>
+        // Snow Animation Script
+        function createSnowflake() {
+            const snowflake = document.createElement('div');
+            snowflake.className = 'snowflake';
+            snowflake.innerHTML = '❄'; // Snowflake character
+            document.body.appendChild(snowflake);
+
+            // Randomize the position and animation duration
+            const xPos = Math.random() * window.innerWidth;
+            const duration = Math.random() * 3 + 2; // Between 2s and 5s
+            snowflake.style.left = xPos + 'px';
+            snowflake.style.animationDuration = duration + 's';
+
+            // Remove the snowflake after it falls
+            setTimeout(() => {
+                snowflake.remove();
+            }, duration * 1000);
+        }
+
+        // Create snowflakes at intervals
+        setInterval(createSnowflake, 300); // Create a snowflake every 300ms
+
         // Updated Gift assignments data
         const giftAssignments = {
-            '#23@123': 'Chris',
-            '#2145@23': 'May',
-            '#21@123': 'Justin',
-            '#23@165': 'Chris'
+            '#2#75@23': '#2#75@23', //chris
+            '#2145@23': '#2145@23', // may 
+            '#21@123': '#21@123', //justin
+            '#2%33@1$': '#2%33@1$'   //pacco
         };
 
         document.getElementById('codeForm').onsubmit = function(event) {
             event.preventDefault();
-            const code = document.getElementById('uniqueCode').value.toLowerCase();
+            const code = document.getElementById('uniqueCode').value; // Removed .toLowerCase()
             const receiver = giftAssignments[code];
 
             if (receiver) {
@@ -36,5 +77,22 @@
             }
         };
     </script>
+
+    <style>
+        @keyframes fall {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(100vh); /* Fall to the bottom of the viewport */
+            }
+        }
+
+        .snowflake {
+            animation-name: fall;
+            animation-timing-function: linear;
+            animation-fill-mode: forwards;
+        }
+    </style>
 </body>
 </html>

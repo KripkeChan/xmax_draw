@@ -44,3 +44,14 @@ li {
     padding: 10px;
     border-radius: 5px;
 }
+
+p {
+    font-style:oblique;
+    font-size: 1em; /* Font size for paragraphs */
+    line-height: 1.6; /* Line height for better readability */
+    margin: 10px 0; /* Vertical spacing between paragraphs */
+    padding: 10px; /* Padding inside the paragraph */
+    border-radius: 10px; /* Rounded corners */
+    display: inline-block; /* Make paragraphs inline blocks */
+    transition: transform 0.2s; /* Transition for hover effect */
+}

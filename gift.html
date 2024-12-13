@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Gift Assignment</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎁 You need to give a gift to: 🎁</h1>
+        <p id="giftReceiver">Loading...</p>
+        <img id="receiverPhoto" src="" alt="Receiver's Photo" style="display:none;">
+    </div>
+    <script>
+        // Gift assignments data with images
+        const giftAssignments = {
+            'chris123': { name: 'Pacco', photo: 'images/pacco.jpg' },
+            'pacco123': { name: 'May', photo: 'images/may.jpg' },
+            'may123': { name: 'Justin', photo: 'images/justin.jpg' },
+            'justin123': { name: 'Chris', photo: 'images/chris.jpg' }
+        };
+
+        // Function to get URL parameters
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Get the code from the URL
+        const code = getQueryParam('code');
+        const receiverInfo = giftAssignments[code];
+
+        if (receiverInfo) {
+            document.getElementById('giftReceiver').textContent = receiverInfo.name;
+            const photoElement = document.getElementById('receiverPhoto');
+            photoElement.src = receiverInfo.photo; // Set the photo source
+            photoElement.style.display = 'block'; // Show the photo
+        } else {
+            document.getElementById('giftReceiver').textContent = 'Code not found.';
+        }
+    </script>
+</body>
+</html>

@@ -3,17 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Christmas Gift Planner</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Xmas Gift Exchange</title>
+    <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>🎄 Christmas Gift Planner 🎁</h1>
-        <div id="passwordForm">
-            <input type="password" id="password" placeholder="Enter your password" required>
-            <button onclick="submitPassword()">Submit</button>
-        </div>
+        <h1>🎄 Welcome to the Xmas Gift Exchange 🎄</h1>
+        <p>Enter your unique code to find out who you'll be gifting this Christmas!</p>
+        <form id="codeForm">
+            <input type="text" id="uniqueCode" placeholder="Enter Code" required>
+            <button type="submit">Submit</button>
+        </form>
     </div>
-    <script src="script.js"></script>
+    <script>
+        // Gift assignments data
+        const giftAssignments = {
+            'chris123': 'Pacco',
+            'pacco123': 'May',
+            'may123': 'Justin',
+            'justin123': 'Chris'
+        };
+
+        document.getElementById('codeForm').onsubmit = function(event) {
+            event.preventDefault();
+            const code = document.getElementById('uniqueCode').value.toLowerCase();
+            const receiver = giftAssignments[code];
+
+            if (receiver) {
+                window.location.href = `gift.html?code=${code}`;
+            } else {
+                alert('Code not found. Please try again.');
+            }
+        };
+    </script>
 </body>
 </html>

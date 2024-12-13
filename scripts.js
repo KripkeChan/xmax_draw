@@ -14,6 +14,6 @@ function submitPassword() {
         localStorage.setItem('user', user); // Store the user in local storage
         window.location.href = 'giftList.html'; // Redirect to the gift list page
     } else {
-        alert("Incorrect password! Please try again.");
+        alert("Incorrect password! Please try again."); // Notification for incorrect password
     }
 }

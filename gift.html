@@ -70,24 +70,26 @@
 
         // Updated Gift assignments data with images
         const giftAssignments = {
-            'kIh^=m': { name: 'Jacky', photo: 'images/Dr._curry.jpg '},
-            'tJ*3U,': { name: 'Justin', photo: 'images/Pacco.jpg '},
-            'l5yFX>': { name: 'Yumi', photo: 'images/Hai_so.jpg '},
-            'yMgsdg': { name: 'Jensen', photo: 'images/Hai_jai.jpg '},
-            'RVK_9u': { name: 'allison', photo: 'images/Carol.jpg '},
-            'g0MOeZ': { name: 'Carol', photo: 'images/Yenny.jpg '},
-            'i<n](;': { name: 'Yumi', photo: 'images/Jasmine.jpg '},
-            'csX-,N': { name: 'Pacco', photo: 'images/Vincent.jpg '},
-            'K6wqD!': { name: 'Justin', photo: 'images/Fat_boy.jpg '},
-            'g^ey4Y': { name: 'Fung fung', photo: 'images/Yumi.jpg '},
-            'wdT}ps': { name: 'Hai jai', photo: 'images/Fung_fung.jpg '},
-            'D,ZZv)': { name: 'Carol', photo: 'images/Justin.jpg '},
-            'Yz^OsG': { name: 'Fat boy', photo: 'images/Jacky.jpg '},
-            'J{c5.~': { name: 'Yenny', photo: 'images/Leo.jpg '},
-            'o9N3qN': { name: 'Jacky', photo: 'images/Kwan_B.jpg '},
-            'iKV!9f': { name: 'Yumi', photo: 'images/allison.jpg '},
-            'jl]U>E': { name: 'allison', photo: 'images/Jensen.jpg '},
-            'G+0Mz0': { name: 'Vincent', photo: 'images/Elise.jpg '}
+            'LsG&]x': { name: 'Chris', photo: 'images/Leo.jpg' },
+            'U0P%D@': { name: 'Pacco', photo: 'images/Hai_jai.jpg' },
+            'h~z@VP': { name: 'Fung fung', photo: 'images/Vincent.jpg' },
+            'DriG=h': { name: 'Kwan B', photo: 'images/Justin.jpg' },
+            'Z/yHeH': { name: 'Justin', photo: 'images/Yenny.jpg' },
+            'QOaZ^1': { name: 'Elise', photo: 'images/Chris.jpg' },
+            'O5UVY6': { name: 'Jacky', photo: 'images/Jensen.jpg' },
+            'sZ0Qzd': { name: 'Jensen', photo: 'images/Kwan_B.jpg' },
+            'JC-=MN': { name: 'Hai jai', photo: 'images/Carol.jpg' },
+            'k*t[6W': { name: 'Yenny', photo: 'images/Dr._curry.jpg' },
+            'j3c}|y': { name: 'Fat boy', photo: 'images/Hai_so.jpg' },
+            'GK[PAb': { name: 'Jasmine', photo: 'images/Mario.jpg' },
+            'rG[mK_': { name: 'Leo', photo: 'images/Fat_boy.jpg' },
+            'D3&|&%': { name: 'Hai so', photo: 'images/allison.jpg' },
+            'L&MJcE': { name: 'allison', photo: 'images/Yumi.jpg' },
+            'J^$)O@': { name: 'Yumi', photo: 'images/Jasmine.jpg' },
+            'Nx=1;G': { name: 'Carol', photo: 'images/Elise.jpg' },
+            'p!EG29': { name: 'Vincent', photo: 'images/Jacky.jpg' },
+            'QagEMi': { name: 'Dr. curry', photo: 'images/Pacco.jpg' },
+            'Svp`$~': { name: 'Mario', photo: 'images/Fung_fung.jpg' }
         };
 
         // Function to get URL parameters
@@ -105,8 +107,8 @@
         const photoElement = document.getElementById('receiverPhoto');
 
         if (receiverInfo) {
-            photoElement.src = receiverInfo.photo; // Set the photo source
-            photoElement.style.display = 'block'; // Show the photo
+            // photoElement.src = receiverInfo.photo; // Set the photo source
+            // photoElement.style.display = 'block'; // Show the photo
             document.getElementById('giftReceiver').textContent = receiverInfo.name; // Set the receiver's name
         } else {
             document.getElementById('giftReceiver').textContent = 'Code not found.'; // Handle invalid code
